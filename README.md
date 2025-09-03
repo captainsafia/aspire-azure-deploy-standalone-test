@@ -1,0 +1,1 @@
+# aspire-azure-deploy-standalone-test

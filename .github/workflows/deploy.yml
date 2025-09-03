@@ -37,8 +37,8 @@ jobs:
     
     - name: Deploy with Aspire
       env:
-        AZURE_SUBSCRIPTIONID: ${{ secrets.AZURE_SUBSCRIPTIONID }}
-        AZURE_LOCATION: ${{ secrets.AZURE_LOCATION }}
-        AZURE_RESOURCEGROUP: ${{ secrets.AZURE_RESOURCEGROUP }}
-        AZURE_ALLOWRESOURCEGROUPCREATION: true
+        Azure__SubscriptionId: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+        Azure__Location: ${{ secrets.AZURE_LOCATION }}
+        Azure__ResourceGroup: ${{ secrets.AZURE_RESOURCEGROUP }}
+        Azure__AllowResourceGroupCreation: true
       run: aspire deploy

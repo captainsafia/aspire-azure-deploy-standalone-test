@@ -1,0 +1,44 @@
+name: Deploy aspire.dev
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+    
+    - name: Install Aspire CLI
+      run: |
+        echo "Installing Aspire CLI from install script..."
+        curl -sSL https://aspire.dev/install.sh | bash
+    
+    - name: Verify Aspire CLI installation
+      run: |
+        which aspire
+        aspire --version
+    
+    - name: Deploy with Aspire
+      env:
+        AZURE_SUBSCRIPTIONID: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+        AZURE_LOCATION: ${{ secrets.AZURE_LOCATION }}
+        AZURE_RESOURCEGROUP: ${{ secrets.AZURE_RESOURCEGROUP }}
+        AZURE_ALLOWRESOURCEGROUPCREATION: true
+      run: aspire deploy

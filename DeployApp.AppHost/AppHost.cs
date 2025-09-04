@@ -2,9 +2,12 @@
 
 var builder = DistributedApplication.CreateBuilder(args);
 
+var weatherApiKey = builder.AddParameter("weatherApiKey");
+
 builder.AddAzureContainerAppEnvironment("aca-env");
 
-var storage = builder.AddAzureStorage("storage");
+var storage = builder.AddAzureStorage("storage")
+    .RunAsEmulator();
 var blob = storage.AddBlobContainer("images");
 
 var cosmosDb = builder.AddAzureCosmosDB("cosmosdb")
@@ -14,6 +17,7 @@ database.AddContainer("mycontainer", "/id");
 
 var apiService = builder.AddProject<Projects.DeployApp_ApiService>("apiservice")
     .WithHttpHealthCheck("/health")
+    .WithEnvironment("WEATHER_API_KEY", weatherApiKey)
     .WithReference(blob)
     .WithReference(database);
 

@@ -24,6 +24,13 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         global-json-file: global.json
+
+    - name: Azure login
+      uses: azure/login@v2
+      with:
+        auth-type: IDENTITY
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
     
     - name: Install Aspire CLI
       run: |

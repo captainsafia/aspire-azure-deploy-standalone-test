@@ -133,6 +133,7 @@ Configure the following secrets in your GitHub repository:
 | `AZURE_SUBSCRIPTIONID` | Azure Subscription ID | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
 | `AZURE_LOCATION` | Azure region for deployment | `eastus` |
 | `AZURE_RESOURCEGROUP` | Target resource group name | `my-aspire-app-rg` |
+| `WEATHER_API_KEY` | API key for weather forecast service | `test-api-key` |
 
 ### Workflow Steps
 

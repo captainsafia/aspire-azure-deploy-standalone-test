@@ -1,6 +1,7 @@
 {
   "appHostPath": "../DeployApp.AppHost/DeployApp.AppHost.csproj",
   "features": {
-    "deployCommandEnabled": "true"
+    "deployCommandEnabled": "true",
+    "singlefileAppHostEnabled": "true"
   }
 }

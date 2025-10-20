@@ -53,4 +53,4 @@ jobs:
         Azure__ResourceGroup: ${{ secrets.AZURE_RESOURCEGROUP }}
         Azure__AllowResourceGroupCreation: true
         Parameters__weatherApiKey: ${{ secrets.WEATHER_API_KEY }}
-      run: aspire deploy
+      run: aspire deploy --non-interactive

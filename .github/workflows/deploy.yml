@@ -39,7 +39,7 @@ jobs:
     - name: Install Aspire CLI
       run: |
         echo "Installing Aspire CLI from install script..."
-        curl -sSL https://aspire.dev/install.sh | bash
+        curl -sSL https://aspire.dev/install.sh | bash -s -- -q dev
     
     - name: Verify Aspire CLI installation
       run: |
@@ -53,4 +53,4 @@ jobs:
         Azure__ResourceGroup: ${{ secrets.AZURE_RESOURCEGROUP }}
         Azure__AllowResourceGroupCreation: true
         Parameters__weatherApiKey: ${{ secrets.WEATHER_API_KEY }}
-      run: aspire deploy
+      run: aspire deploy --non-interactive

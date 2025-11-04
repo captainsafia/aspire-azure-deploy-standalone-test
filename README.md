@@ -6,7 +6,7 @@ A sample .NET Aspire application demonstrating cloud-native development with Azu
 
 This solution contains the following projects:
 
-- **`DeployApp.AppHost`** - The Aspire AppHost that orchestrates the application and defines cloud resources
+- **`apphost.cs`** - The Aspire AppHost that orchestrates the application and defines cloud resources
 - **`DeployApp.Web`** - Blazor web frontend application
 - **`DeployApp.ApiService`** - ASP.NET Core Web API that provides weather forecast data
 - **`DeployApp.ServiceDefaults`** - Shared service defaults and configurations

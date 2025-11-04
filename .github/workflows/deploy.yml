@@ -48,6 +48,7 @@ jobs:
     
     - name: Deploy with Aspire
       env:
+        Azure__TenantId: ${{ secrets.AZURE_TENANT_ID }}
         Azure__SubscriptionId: ${{ secrets.AZURE_SUBSCRIPTIONID }}
         Azure__Location: ${{ secrets.AZURE_LOCATION }}
         Azure__ResourceGroup: ${{ secrets.AZURE_RESOURCEGROUP }}

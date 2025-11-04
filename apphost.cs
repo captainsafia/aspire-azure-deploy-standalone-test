@@ -1,4 +1,10 @@
-#pragma warning disable ASPIRECOSMOSDB001 
+#pragma warning disable ASPIRECOSMOSDB001
+#:sdk Aspire.AppHost.Sdk@13.1.0-preview.1.25552.3
+#:package Aspire.Hosting.Azure.AppContainers
+#:package Aspire.Hosting.Azure.CosmosDB
+#:package Aspire.Hosting.Azure.Storage
+#:project ./DeployApp.ApiService
+#:project ./DeployApp.Web
 
 var builder = DistributedApplication.CreateBuilder(args);
 
